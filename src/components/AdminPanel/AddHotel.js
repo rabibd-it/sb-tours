@@ -50,7 +50,7 @@ const AddHotel = () => {
 
     // Get Service Data
     useEffect(() => {
-        axios.get(`https://afternoon-island-48419.herokuapp.com/?page=${page}&&size=${size}`)
+        axios.get(`https://afternoon-island-48419.herokuapp.com/hotels/?page=${page}&&size=${size}`)
             .then(function (response) {
                 setServices(response.data.hotels);
                 const count = response.data.count;
