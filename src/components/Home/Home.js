@@ -1,40 +1,81 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import './Home.css';
 import Loader from '../Shared/Loader/Loader';
 import Slider from '../Slider/Slider';
 import aboutImg from '../../images/about.png';
 import Service from '../Service/Service';
 import Domestic from '../Domestic/Domestic';
+import Hotel from '../Hotel/Hotel';
+import International from '../International/International';
 
 const Home = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [sliders, setSliders] = useState([]);
     const [services, setServices] = useState([]);
     const [domestics, setDomestics] = useState([]);
+    const [internationals, setInternationals] = useState([]);
+    const [hotels, setHotels] = useState([]);
 
     // load sliders api data
     useEffect(() => {
-        fetch('http://127.0.0.1:5000/sliders')
-            .then(res => res.json())
-            .then(data => setSliders(data.sliders))
+        axios.get('https://afternoon-island-48419.herokuapp.com/sliders')
+            .then(function (res) {
+                setSliders(res.data.sliders)
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
         setIsLoading(false);
     }, [setSliders]);
 
     // load services api data
     useEffect(() => {
-        fetch('http://127.0.0.1:5000/services')
-            .then(res => res.json())
-            .then(data => setServices(data.services))
+        axios.get('https://afternoon-island-48419.herokuapp.com/services')
+            .then(function (res) {
+                setServices(res.data.services)
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
         setIsLoading(false);
     }, [setServices]);
 
     // load domestic tour api data
     useEffect(() => {
-        fetch('http://127.0.0.1:5000/tours?category=domestic')
-            .then(res => res.json())
-            .then(data => setDomestics(data.tours))
+        axios.get('https://afternoon-island-48419.herokuapp.com/tour-categories?category=domestic')
+            .then(function (res) {
+                setDomestics(res.data)
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
         setIsLoading(false);
     }, [setDomestics]);
+
+    // load international tour api data
+    useEffect(() => {
+        axios.get('https://afternoon-island-48419.herokuapp.com/tour-categories?category=international')
+            .then(function (res) {
+                setInternationals(res.data)
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        setIsLoading(false);
+    }, [setInternationals]);
+
+    // load hotel api data
+    useEffect(() => {
+        axios.get('https://afternoon-island-48419.herokuapp.com/hotels')
+            .then(function (res) {
+                setHotels(res.data.hotels)
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        setIsLoading(false);
+    }, [setHotels]);
 
     return (
         <div>
@@ -124,17 +165,65 @@ const Home = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="row">
+                    <div className="row g-4">
                         {
                             isLoading ? <Loader></Loader>
                                 :
-                                domestics.slice(0, 3).map(domestic => <Domestic key={domestic._id} domestic={domestic}></Domestic>)
+                                domestics.slice(0, 6).map(domestic => <Domestic key={domestic._id} domestic={domestic}></Domestic>)
                         }
                     </div>
                 </div>
             </section>
             }
             {/* end domestic tour */}
+
+            {/* start international tour */}
+
+            {internationals.length > 0 && <section className="section-spacing inverse-bg">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-lg-12">
+                            <div className="section-title text-center">
+                                <h2><span>International Tours</span></h2>
+                                <p>Below Are Our Most Popular International Tour Packages</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="row g-4">
+                        {
+                            isLoading ? <Loader></Loader>
+                                :
+                                internationals.slice(0, 6).map(international => <International key={international._id} international={international}></International>)
+                        }
+                    </div>
+                </div>
+            </section>
+            }
+            {/* end international tour */}
+
+            {/* start hotel */}
+
+            {internationals.length > 0 && <section className="section-spacing">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-lg-12">
+                            <div className="section-title text-center">
+                                <h2><span>Hotel Booking</span></h2>
+                                <p>Below Are Our Most Popular Hotel Packages</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="row">
+                        {
+                            isLoading ? <Loader></Loader>
+                                :
+                                hotels.slice(0, 6).map(hotel => <Hotel key={hotel._id} hotel={hotel}></Hotel>)
+                        }
+                    </div>
+                </div>
+            </section>
+            }
+            {/* end hotel */}
         </div>
     );
 };

@@ -6,7 +6,7 @@ const Footer = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [tours, setTours] = useState([]);
     useEffect(() => {
-        fetch('http://127.0.0.1:5000/tours')
+        fetch('https://afternoon-island-48419.herokuapp.com/tours')
             .then(res => res.json())
             .then(data => setTours(data.tours))
         setIsLoading(false);
@@ -29,9 +29,9 @@ const Footer = () => {
                             <div className="footer-widget">
                                 <h3>Quick Links</h3>
                                 <ul>
-                                    <li><Link to="/about">Abouts Us</Link></li>
+                                    <li><Link to="/about-us">Abouts Us</Link></li>
                                     <li><Link to="/services">Services</Link></li>
-                                    <li><Link to="/tours">Tours</Link></li>
+                                    <li><Link to="/hotels">Hotle</Link></li>
                                     <li><Link to="/contact-us">Contact Us</Link></li>
                                 </ul>
                             </div>
@@ -41,7 +41,7 @@ const Footer = () => {
                                 <h3>Tours</h3>
                                 <ul>
                                     {
-                                        tours.length > 0 && tours.slice(0, 4).map(tour => <li key={tour._id}><Link to={`tour/${tour._id}`}>{tour.name}</Link></li>)
+                                        tours.length > 0 && tours.slice(0, 4).map(tour => <li key={tour._id}><Link to={`tours/booking/${tour._id}`}>{tour.name}</Link></li>)
                                     }
                                 </ul>
                             </div>

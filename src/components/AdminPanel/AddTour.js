@@ -20,7 +20,7 @@ const AddTour = () => {
         data.created_by = user.email ?? '';
         data.created_at = new Date();
         if (tour._id) {
-            axios.put(`http://localhost:5000/tour/${tour._id}`, data)
+            axios.put(`https://afternoon-island-48419.herokuapp.com/tour/${tour._id}`, data)
                 .then(function (response) {
                     if (response.data.modifiedCount > 0) {
                         toast.success(`Data Updated Successfully.`);
@@ -33,7 +33,7 @@ const AddTour = () => {
                     toast.error(error);
                 });
         } else {
-            axios.post(`http://localhost:5000/tours`, data)
+            axios.post(`https://afternoon-island-48419.herokuapp.com/tours`, data)
                 .then(function (response) {
                     if (response.data.insertedId) {
                         toast.success(`Data Inserted Successfully`);
@@ -50,7 +50,7 @@ const AddTour = () => {
 
     // Get Service Data
     useEffect(() => {
-        axios.get(`http://127.0.0.1:5000/tours/?page=${page}&&size=${size}`)
+        axios.get(`https://afternoon-island-48419.herokuapp.com/tours/?page=${page}&&size=${size}`)
             .then(function (response) {
                 setServices(response.data.tours);
                 const count = response.data.count;
@@ -66,7 +66,7 @@ const AddTour = () => {
 
     // Edit Service
     const handleEdit = id => {
-        axios.get(`http://localhost:5000/tour/${id}`)
+        axios.get(`https://afternoon-island-48419.herokuapp.com/tour/${id}`)
             .then(function (response) {
                 setService(response.data);
                 setIsLoading(false);
@@ -79,7 +79,7 @@ const AddTour = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure, you want to delete?');
         if (proceed) {
-            axios.delete(`http://localhost:5000/tours/${id}`)
+            axios.delete(`https://afternoon-island-48419.herokuapp.com/tours/${id}`)
                 .then(function (response) {
                     if (response.data.deletedCount > 0) {
                         toast.success(`Data Deleted Successfully`);
@@ -100,7 +100,7 @@ const AddTour = () => {
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="section-title text-center">
-                                <h2><span>Service</span></h2>
+                                <h2><span>Tours</span></h2>
                             </div>
                         </div>
                     </div>
@@ -188,7 +188,7 @@ const AddTour = () => {
                                     </div>
                                 </div>
                                 <div className="text-center">
-                                    <button className="btn btn-primary" type="submit">Send Message</button>
+                                    <button className="btn btn-primary" type="submit">{tour._id ? 'Update' : 'Add'}</button>
                                 </div>
                             </form>
                         </div>

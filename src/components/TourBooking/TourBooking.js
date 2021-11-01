@@ -7,7 +7,7 @@ import useAuth from '../../hooks/useAuth';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const Tour = () => {
+const TourBooking = () => {
 
     const { id } = useParams();
     const [tour, setTour] = useState([]);
@@ -16,7 +16,7 @@ const Tour = () => {
 
     // load tour api data
     useEffect(() => {
-        axios.get(`http://127.0.0.1:5000/tour/${id}`)
+        axios.get(`https://afternoon-island-48419.herokuapp.com/tour/${id}`)
             .then(function (res) {
                 setTour(res.data);
             })
@@ -30,8 +30,9 @@ const Tour = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = (data, e) => {
         data.tour_id = id;
+        data.status = 'pending';
         data.created_at = new Date();
-        axios.post(`http://localhost:5000/tour/booking`, data)
+        axios.post(`https://afternoon-island-48419.herokuapp.com/tour/booking`, data)
             .then(function (res) {
                 if (res.data.insertedId) {
                     toast.success(`Booking Successfully`);
@@ -121,4 +122,4 @@ const Tour = () => {
     );
 };
 
-export default Tour;
+export default TourBooking;

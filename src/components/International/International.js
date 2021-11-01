@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Domestic = ({ domestic }) => {
-    const { _id, name, image, price, duration, description } = domestic;
+const International = ({ international }) => {
+    const { _id, name, image, price, duration, description } = international;
     return (
         <div className="col-12 col-md-6 col-lg-4">
             <div className="tour-item wow fadeIn bg-light">
@@ -34,4 +34,4 @@ const Domestic = ({ domestic }) => {
     );
 };
 
-export default Domestic;
+export default International;

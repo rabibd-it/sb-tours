@@ -20,7 +20,7 @@ const AddHotel = () => {
         data.created_by = user.email ?? '';
         data.created_at = new Date();
         if (hotel._id) {
-            axios.put(`http://localhost:5000/hotel/${hotel._id}`, data)
+            axios.put(`https://afternoon-island-48419.herokuapp.com/hotel/${hotel._id}`, data)
                 .then(function (response) {
                     if (response.data.modifiedCount > 0) {
                         toast.success(`Data Updated Successfully.`);
@@ -33,7 +33,7 @@ const AddHotel = () => {
                     toast.error(error);
                 });
         } else {
-            axios.post(`http://localhost:5000/hotels`, data)
+            axios.post(`https://afternoon-island-48419.herokuapp.com/hotels`, data)
                 .then(function (response) {
                     if (response.data.insertedId) {
                         toast.success(`Data Inserted Successfully`);
@@ -50,7 +50,7 @@ const AddHotel = () => {
 
     // Get Service Data
     useEffect(() => {
-        axios.get(`http://127.0.0.1:5000/hotels/?page=${page}&&size=${size}`)
+        axios.get(`https://afternoon-island-48419.herokuapp.com/?page=${page}&&size=${size}`)
             .then(function (response) {
                 setServices(response.data.hotels);
                 const count = response.data.count;
@@ -66,7 +66,7 @@ const AddHotel = () => {
 
     // Edit Service
     const handleEdit = id => {
-        axios.get(`http://localhost:5000/hotel/${id}`)
+        axios.get(`https://afternoon-island-48419.herokuapp.com/hotel/${id}`)
             .then(function (response) {
                 setService(response.data);
                 setIsLoading(false);
@@ -79,7 +79,7 @@ const AddHotel = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure, you want to delete?');
         if (proceed) {
-            axios.delete(`http://localhost:5000/hotels/${id}`)
+            axios.delete(`https://afternoon-island-48419.herokuapp.com/hotels/${id}`)
                 .then(function (response) {
                     if (response.data.deletedCount > 0) {
                         toast.success(`Data Deleted Successfully`);
@@ -100,7 +100,7 @@ const AddHotel = () => {
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="section-title text-center">
-                                <h2><span>Service</span></h2>
+                                <h2><span>Hotels</span></h2>
                             </div>
                         </div>
                     </div>
@@ -108,19 +108,7 @@ const AddHotel = () => {
                         <div className="col-12 col-md-6 col-lg-5">
                             <form onSubmit={handleSubmit(onSubmit)}>
                                 <div className="row">
-                                    <div className="col-12 col-md-5 col-lg-5">
-                                        <div className="form-group">
-                                            <select className="form-control select" {...register("category", { required: true })}>
-                                                <option value="">Select Category</option>
-                                                <option value="domestic">Domestic Tours</option>
-                                                <option value="international">International Tour</option>
-                                            </select>
-                                            <div className="help-block with-errors">
-                                                {errors.category && <span>This field is required</span>}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-12 col-md-7 col-lg-7">
+                                    <div className="col-12 col-md-12 col-lg-12">
                                         <div className="form-group">
                                             <input type="text" className="form-control" defaultValue={hotel.name ?? ''} placeholder="Name" {...register("name", { required: true })} />
                                             <div className="help-block with-errors">
@@ -162,9 +150,9 @@ const AddHotel = () => {
                                     </div>
                                     <div className="col-12 col-md-4 col-lg-5">
                                         <div className="form-group">
-                                            <input type="text" className="form-control" placeholder="Duration" {...register("duration", { required: true })} />
+                                            <input type="text" className="form-control" placeholder="Type" {...register("type", { required: true })} />
                                             <div className="help-block with-errors">
-                                                {errors.duration && <span>This field is required</span>}
+                                                {errors.type && <span>This field is required</span>}
                                             </div>
                                         </div>
                                     </div>
@@ -188,7 +176,7 @@ const AddHotel = () => {
                                     </div>
                                 </div>
                                 <div className="text-center">
-                                    <button className="btn btn-primary" type="submit">Send Message</button>
+                                    <button className="btn btn-primary" type="submit">{hotel._id ? 'Update' : 'Add'}</button>
                                 </div>
                             </form>
                         </div>
@@ -198,9 +186,9 @@ const AddHotel = () => {
                                     <thead className="table-dark">
                                         <tr>
                                             <th scope="col">#</th>
-                                            <th scope="col">Category</th>
                                             <th scope="col">Name</th>
                                             <th scope="col">Image</th>
+                                            <th scope="col">Price</th>
                                             <th scope="col">Action</th>
                                         </tr>
                                     </thead>
@@ -210,11 +198,11 @@ const AddHotel = () => {
                                                 :
                                                 hotels.map((hotel, index) => <tr key={hotel._id}>
                                                     <th scope="row">{index + 1}</th>
-                                                    <td>{hotel.category}</td>
                                                     <td>{hotel.name}</td>
                                                     <td>
                                                         <img className="img-thumbnail" src={hotel.image ?? 'https://i.ibb.co/Wy1R6rV/no-photo.jpg'} alt={hotel.name} />
                                                     </td>
+                                                    <td>{hotel.price}</td>
                                                     <td>
                                                         <div className="btn-group" role="group">
                                                             <button type="button" className="btn btn-success" onClick={() => handleEdit(hotel._id)}>Edit</button>

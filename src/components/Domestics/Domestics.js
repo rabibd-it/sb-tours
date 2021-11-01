@@ -1,30 +1,36 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import Service from '../Service/Service';
+import Domestic from '../Domestic/Domestic';
 import Breadcrumb from '../Shared/Breadcrumb/Breadcrumb';
 import Loader from '../Shared/Loader/Loader';
 
-const Services = () => {
-    const [isLoading, setIsLoading] = useState(false);
-    const [services, setServices] = useState([]);
+const Domestics = () => {
 
-    // load services api data
+    const [isLoading, setIsLoading] = useState(false);
+    const [domestics, setDomestics] = useState([]);
+
+    // load domestic tour api data
     useEffect(() => {
-        fetch('https://afternoon-island-48419.herokuapp.com/services')
-            .then(res => res.json())
-            .then(data => setServices(data.services))
+        axios.get('https://afternoon-island-48419.herokuapp.com/tour-categories?category=domestic')
+            .then(function (res) {
+                setDomestics(res.data)
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
         setIsLoading(false);
-    }, [setServices]);
+    }, [setDomestics]);
     return (
         <div>
-            <Breadcrumb title="Services"></Breadcrumb>
+            <Breadcrumb title="Domestic Tours"></Breadcrumb>
             {
-                services.length > 0 && <section className="section-spacing">
+                domestics.length > 0 && <section className="section-spacing">
                     <div className="container">
                         <div className="row">
                             <div className="col-md-12">
                                 <div className="section-title text-center">
-                                    <h2><span>SB Tours & Travels Services</span></h2>
-                                    <p>Below Are Our Most Services That Client Can Get From Us</p>
+                                    <h2><span>Domestic Tours</span></h2>
+                                    <p>Below Are Our Most Popular Domestic Tour Packages</p>
                                 </div>
                             </div>
                         </div>
@@ -32,7 +38,7 @@ const Services = () => {
                             {
                                 isLoading ? <Loader></Loader>
                                     :
-                                    services.map(service => <Service key={service._id} service={service}></Service>)
+                                    domestics.map(domestic => <Domestic key={domestic._id} domestic={domestic}></Domestic>)
                             }
                         </div>
                     </div>
@@ -42,4 +48,4 @@ const Services = () => {
     );
 };
 
-export default Services;
+export default Domestics;

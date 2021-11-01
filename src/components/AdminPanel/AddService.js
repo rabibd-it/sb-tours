@@ -20,7 +20,7 @@ const AddService = () => {
         data.created_by = user.email ?? '';
         data.created_at = new Date();
         if (service._id) {
-            axios.put(`http://localhost:5000/service/${service._id}`, data)
+            axios.put(`https://afternoon-island-48419.herokuapp.com/service/${service._id}`, data)
                 .then(function (response) {
                     if (response.data.modifiedCount > 0) {
                         toast.success(`Data Updated Successfully.`);
@@ -33,7 +33,7 @@ const AddService = () => {
                     toast.error(error);
                 });
         } else {
-            axios.post(`http://localhost:5000/services`, data)
+            axios.post(`https://afternoon-island-48419.herokuapp.com/services`, data)
                 .then(function (response) {
                     if (response.data.insertedId) {
                         toast.success(`Data Inserted Successfully`);
@@ -50,7 +50,7 @@ const AddService = () => {
 
     // Get Service Data
     useEffect(() => {
-        axios.get(`http://127.0.0.1:5000/services/?page=${page}&&size=${size}`)
+        axios.get(`https://afternoon-island-48419.herokuapp.com/services/?page=${page}&&size=${size}`)
             .then(function (response) {
                 setServices(response.data.services);
                 const count = response.data.count;
@@ -66,7 +66,7 @@ const AddService = () => {
 
     // Edit Service
     const handleEdit = id => {
-        axios.get(`http://localhost:5000/service/${id}`)
+        axios.get(`https://afternoon-island-48419.herokuapp.com/service/${id}`)
             .then(function (response) {
                 setService(response.data);
                 setIsLoading(false);
@@ -79,7 +79,7 @@ const AddService = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure, you want to delete?');
         if (proceed) {
-            axios.delete(`http://localhost:5000/services/${id}`)
+            axios.delete(`https://afternoon-island-48419.herokuapp.com/services/${id}`)
                 .then(function (response) {
                     if (response.data.deletedCount > 0) {
                         toast.success(`Data Deleted Successfully`);
@@ -142,7 +142,7 @@ const AddService = () => {
                                     </div>
                                 </div>
                                 <div className="text-center">
-                                    <button className="btn btn-primary" type="submit">Send Message</button>
+                                    <button className="btn btn-primary" type="submit">{service._id ? 'Update' : 'Add'}</button>
                                 </div>
                             </form>
                         </div>

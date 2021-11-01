@@ -1,21 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Hotel = () => {
+const Hotel = ({ hotel }) => {
+    const { _id, name, price, image, description, type } = hotel;
     return (
-        <div class="col-12 col-md-6 col-lg-6">
-            <div class="hotel-item wow fadeIn bg-light">
-                <div class="media">
+        <div className="col-12 col-md-6 col-lg-6">
+            <div className="hotel-item wow fadeIn bg-light h-100">
+                <div className="media">
                     <div className="row">
-                        <div className="col-lg-5 p-0">
-                            <div class="thumb">
-                                <Link>
+                        <div className="col-lg-5">
+                            <div className="thumb h-100">
+                                <Link to={`/tours/booking/${_id}`}>
                                     <img
-                                        src={'http://themecrazy.net/html/manali/img/destination/1.jpg'}
-                                        alt=""
+                                        src={image ? image : 'https://i.ibb.co/Wy1R6rV/no-photo.jpg'}
+                                        alt={name}
                                         style={{
-                                            minHeight: "100px",
-                                            maxHeight: "100%",
+                                            height: "100%",
                                             width: "100%"
                                         }}
                                     />
@@ -23,11 +23,13 @@ const Hotel = () => {
                             </div>
                         </div>
                         <div className="col-lg-7">
-                            <div class="media-body">
-                                <div class="hotel-info">
-                                    <h3><a href="hotel-single.html">Herta Berlin Hotel</a></h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing Suscipit tas aperiam.</p>
-                                    <div class="hotel-price">$150.00 <small>- Per Night</small></div>
+                            <div className="media-body">
+                                <div className="hotel-info">
+                                    <h3><Link to={`/tours/booking/${_id}`}>{name}</Link></h3>
+                                    <p className="text-justify">
+                                        {description.slice(0, 100)}
+                                    </p>
+                                    <div className="tour-price">BDT {price} <small>- {type}</small></div>
                                 </div>
                             </div>
                         </div>

@@ -20,8 +20,15 @@ import AddSlider from './components/AdminPanel/AddSlider';
 import AddService from './components/AdminPanel/AddService';
 import AddTour from './components/AdminPanel/AddTour';
 import AddHotel from './components/AdminPanel/AddHotel';
-import Tour from './components/Tour/Tour';
 import Services from './components/Services/Services';
+import Profile from './components/Profile/Profile';
+import UpdateProfile from './components/Profile/UpdateProfile';
+import MyOrders from './components/Profile/MyOrders';
+import AllOrders from './components/Profile/AllOrders';
+import Domestics from './components/Domestics/Domestics';
+import TourBooking from './components/TourBooking/TourBooking';
+import Internationals from './components/Internationals/Internationals';
+import Hotels from './components/Hotels/Hotels';
 function App() {
   return (
     <AuthProvider>
@@ -40,10 +47,6 @@ function App() {
               <Home></Home>
             </Route>
 
-            <PrivateRoute path="/tour/:id">
-              <Tour></Tour>
-            </PrivateRoute>
-
             <Route path="/about-us">
               <About></About>
             </Route>
@@ -52,9 +55,41 @@ function App() {
               <Services></Services>
             </Route>
 
+            <Route path="/tours/domestic">
+              <Domestics></Domestics>
+            </Route>
+
+            <Route path="/tours/international">
+              <Internationals></Internationals>
+            </Route>
+
+            <PrivateRoute path="/tours/booking/:id">
+              <TourBooking></TourBooking>
+            </PrivateRoute>
+
+            <Route path="/hotels">
+              <Hotels></Hotels>
+            </Route>
+
             <Route path="/contact-us">
               <Contact></Contact>
             </Route>
+
+            <PrivateRoute path="/profile/view">
+              <Profile></Profile>
+            </PrivateRoute>
+
+            <PrivateRoute path="/profile/update">
+              <UpdateProfile></UpdateProfile>
+            </PrivateRoute>
+
+            <PrivateRoute path="/profile/my-orders">
+              <MyOrders></MyOrders>
+            </PrivateRoute>
+
+            <PrivateRoute path="/profile/all-orders">
+              <AllOrders></AllOrders>
+            </PrivateRoute>
 
             <Route path="/login">
               <Login></Login>

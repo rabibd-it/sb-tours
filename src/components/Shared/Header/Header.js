@@ -40,10 +40,10 @@ const Header = () => {
                                 </a>
                                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li>
-                                        <NavLink to="/tour/domestic" className="dropdown-item" activeClassName="active">Domestic Tours</NavLink>
+                                        <NavLink to="/tours/domestic" className="dropdown-item" activeClassName="active">Domestic Tours</NavLink>
                                     </li>
                                     <li>
-                                        <NavLink to="/tour/international" className="dropdown-item" activeClassName="active">International Tours</NavLink>
+                                        <NavLink to="/tours/international" className="dropdown-item" activeClassName="active">International Tours</NavLink>
                                     </li>
                                 </ul>
                             </li>
@@ -82,17 +82,17 @@ const Header = () => {
                                     </a>
                                     <ul className="dropdown-menu text-small" aria-labelledby="dropdownUser">
                                         <li>
-                                            <NavLink to="/profile" className="dropdown-item" activeClassName="active">Profile</NavLink>
+                                            <NavLink to="/profile/view" className="dropdown-item" activeClassName="active">Profile</NavLink>
                                         </li>
                                         <li>
                                             <NavLink to="/profile/update" className="dropdown-item" activeClassName="active">Update Profile</NavLink>
                                         </li>
                                         <li><hr className="dropdown-divider" /></li>
                                         <li>
-                                            <NavLink to="/profile/my-order" className="dropdown-item" activeClassName="active">My Orders</NavLink>
+                                            <NavLink to="/profile/my-orders" className="dropdown-item" activeClassName="active">My Orders</NavLink>
                                         </li>
                                         <li>
-                                            <NavLink to="/profile/all-order" className="dropdown-item" activeClassName="active">All Orders</NavLink>
+                                            <NavLink to="/profile/all-orders" className="dropdown-item" activeClassName="active">All Orders</NavLink>
                                         </li>
                                         <li>
                                             <a href="#" onClick={logOut} className="dropdown-item">Sign Out</a>

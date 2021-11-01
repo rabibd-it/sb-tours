@@ -1,30 +1,35 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import Service from '../Service/Service';
+import Hotel from '../Hotel/Hotel';
 import Breadcrumb from '../Shared/Breadcrumb/Breadcrumb';
 import Loader from '../Shared/Loader/Loader';
 
-const Services = () => {
+const Hotels = () => {
     const [isLoading, setIsLoading] = useState(false);
-    const [services, setServices] = useState([]);
+    const [hotels, setHotels] = useState([]);
 
-    // load services api data
+    // load domestic tour api data
     useEffect(() => {
-        fetch('https://afternoon-island-48419.herokuapp.com/services')
-            .then(res => res.json())
-            .then(data => setServices(data.services))
+        axios.get('https://afternoon-island-48419.herokuapp.com/hotels')
+            .then(function (res) {
+                setHotels(res.data.hotels)
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
         setIsLoading(false);
-    }, [setServices]);
+    }, [setHotels]);
     return (
         <div>
-            <Breadcrumb title="Services"></Breadcrumb>
+            <Breadcrumb title="Hotels"></Breadcrumb>
             {
-                services.length > 0 && <section className="section-spacing">
+                hotels.length > 0 && <section className="section-spacing">
                     <div className="container">
                         <div className="row">
                             <div className="col-md-12">
                                 <div className="section-title text-center">
-                                    <h2><span>SB Tours & Travels Services</span></h2>
-                                    <p>Below Are Our Most Services That Client Can Get From Us</p>
+                                    <h2><span>Hotel Booking</span></h2>
+                                    <p>Below Are Our Most Popular Hotel Packages</p>
                                 </div>
                             </div>
                         </div>
@@ -32,7 +37,7 @@ const Services = () => {
                             {
                                 isLoading ? <Loader></Loader>
                                     :
-                                    services.map(service => <Service key={service._id} service={service}></Service>)
+                                    hotels.map(hotel => <Hotel key={hotel._id} hotel={hotel}></Hotel>)
                             }
                         </div>
                     </div>
@@ -42,4 +47,4 @@ const Services = () => {
     );
 };
 
-export default Services;
+export default Hotels;
