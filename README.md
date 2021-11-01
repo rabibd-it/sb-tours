@@ -6,6 +6,8 @@ On behalf of SB Tours and Travels Agency is committed to offering an informative
 
 - React
 - Node JS
+- Express
+- mongodb
 - Firebase
 - React Router
 - Axios
