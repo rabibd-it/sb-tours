@@ -1,0 +1,15 @@
+.header .navbar-dark .navbar-nav .nav-link {
+  color: #fff;
+  text-transform: uppercase;
+  font-family: "Poppins";
+  font-size: 15px;
+}
+.header .navbar-dark .navbar-nav .active {
+  color: #00b092 !important;
+  font-weight: bold;
+}
+@media only screen and (max-width: 768px) {
+  .header .text-end {
+    text-align: center !important;
+  }
+}

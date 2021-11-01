@@ -1,0 +1,25 @@
+.about-text {
+  width: 100%;
+  float: left;
+}
+.about-text ul li {
+  width: 50%;
+  float: left;
+  font-size: 16px;
+  line-height: 28px;
+  color: #888;
+  padding-left: 28px;
+  padding-right: 10px;
+  position: relative;
+  margin: 0 0 5px;
+}
+.about-text ul li::before {
+  width: 25px;
+  height: 20px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  content: "\f18e";
+  font-family: FontAwesome;
+  color: #6abe45;
+}

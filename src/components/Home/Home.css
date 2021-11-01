@@ -1,0 +1,283 @@
+/*======================================== Slider ========================================*/
+#slider img {
+  max-height: 500px;
+  width: 100%;
+}
+#slider .carousel-caption {
+  background: rgba(105, 190, 69, 0.836);
+  border-radius: 10px;
+  color: #fff !important;
+  left: 20%;
+  right: 40%;
+  top: 30%;
+  bottom: 30%;
+}
+
+#slider h5 {
+  color: rgb(8, 8, 8);
+  font-weight: bold;
+}
+#slider p {
+  color: #fff;
+}
+
+#slider i {
+  background-color: #6abe45;
+  padding: 15px;
+  border-radius: 50%;
+  color: #fff;
+}
+/*======================================== Services ========================================*/
+.service-item {
+  width: 100%;
+  float: left;
+  height: auto;
+  margin: 0 0 65px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.service-item p {
+  margin: 0;
+}
+.service-item i {
+  width: 80px;
+  text-align: center;
+  display: inline-block;
+  line-height: 72px;
+  vertical-align: middle;
+  position: relative;
+  z-index: 3;
+}
+.service-item .icon {
+  display: block;
+  position: relative;
+  margin: 0 0 20px;
+}
+.service-item [class^="fa-"]:before,
+.service-item [class*=" fa-"]:before {
+  font-size: 36px;
+  color: #6abe45;
+  -webkit-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.service-item .icon::before {
+  width: 80px;
+  height: 80px;
+  background: #d0ffbb;
+  border-radius: 0 80px 80px 80px;
+  opacity: 0.75;
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0px;
+  z-index: 1;
+  -webkit-transform: translateX(-50%) rotate(45deg);
+  -ms-transform: translateX(-50%) rotate(45deg);
+  -moz-transform: translateX(-50%) rotate(45deg);
+  transform: translateX(-50%) rotate(45deg);
+  -webkit-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.service-item:hover .icon::before {
+  background: #6abe45;
+  opacity: 1;
+}
+.service-item:hover .icon i::before {
+  color: #fff;
+}
+
+/*======================================== Tours ========================================*/
+.tour-item {
+  width: 100%;
+  float: left;
+  height: 100%;
+  background: #fff;
+  margin: 0 0 30px;
+  -webkit-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.tours .tour-item {
+  margin: 0 0 50px !important;
+}
+.tour-item:hover {
+  -webkit-box-shadow: 0 0 25px rgba(165, 165, 165, 0.1);
+  -ms-box-shadow: 0 0 25px rgba(165, 165, 165, 0.1);
+  -moz-box-shadow: 0 0 25px rgba(165, 165, 165, 0.1);
+  box-shadow: 0 0 25px rgba(165, 165, 165, 0.1);
+}
+.tour-item .thumb {
+  width: 100%;
+  float: left;
+  height: auto;
+  overflow: hidden;
+}
+.tour-item .thumb img {
+  width: 100%;
+  height: auto;
+  -webkit-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.tour-item:hover img {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  transform: scale(1.2);
+}
+.tour-info {
+  width: 100%;
+  float: left;
+  height: auto;
+  padding: 27px 20px 27px;
+}
+.tour-info p,
+.hotel-info {
+  margin: 0 0 20px;
+}
+.tour-price {
+  font-size: 24px;
+  color: #6abe45;
+  font-weight: 600;
+  line-height: 28px;
+  margin: 0 0 10px;
+}
+.tour-price small {
+  font-size: 14px;
+  font-weight: 400;
+  color: #888;
+}
+.tour-info .tour-location {
+  width: 100%;
+  float: left;
+  height: auto;
+}
+.tour-info .tour-location span {
+  background: #ffd8cc;
+  display: inline-block;
+  padding: 5px 15px;
+  font-size: 12px;
+  line-height: 20px;
+  border-radius: 15px;
+  color: #ff2805;
+}
+.tour-item .media .thumb {
+  width: auto;
+}
+
+/*======================================== Destinations ========================================*/
+.destination-item {
+  width: 100%;
+  float: left;
+  height: auto;
+  position: relative;
+  margin: 0 0 30px;
+  overflow: hidden;
+}
+.destination-info {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 45px 20px 25px;
+  text-align: center;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0,
+    rgba(0, 0, 0, 0.9) 100%
+  );
+}
+.destination-info h2 {
+  color: #fff;
+  margin: 0 0 10px;
+  font-weight: 600;
+}
+.destination-info h3 {
+  margin: 0;
+  color: #fff;
+}
+.destination-item img {
+  width: 100%;
+  height: auto;
+  -webkit-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.destination-item:hover img {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+/*======================================== Hotels ========================================*/
+.hotel-item {
+  width: 100%;
+  float: left;
+  height: auto;
+  background: #fff;
+  margin: 0 0 30px;
+  -webkit-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.hotels .hotel-item {
+  margin: 0 0 50px !important;
+}
+.hotel-item:hover {
+  -webkit-box-shadow: 0 0 25px rgba(165, 165, 165, 0.1);
+  -ms-box-shadow: 0 0 25px rgba(165, 165, 165, 0.1);
+  -moz-box-shadow: 0 0 25px rgba(165, 165, 165, 0.1);
+  box-shadow: 0 0 25px rgba(165, 165, 165, 0.1);
+}
+.hotel-item .thumb {
+  width: 100%;
+  float: left;
+  height: auto;
+  overflow: hidden;
+}
+.hotel-item .thumb img {
+  width: 100%;
+  height: auto;
+  -webkit-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.hotel-item:hover img {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  transform: scale(1.2);
+}
+.hotel-info {
+  width: 100%;
+  float: left;
+  height: auto;
+  padding: 27px 25px 27px;
+}
+.hotel-price {
+  font-size: 24px;
+  color: #6abe45;
+  font-weight: 600;
+  line-height: 28px;
+  margin: 0 0 10px;
+}
+.hotel-price small {
+  font-size: 14px;
+  font-weight: 400;
+  color: #888;
+}
+.hotel-item .media .thumb {
+  width: auto;
+}

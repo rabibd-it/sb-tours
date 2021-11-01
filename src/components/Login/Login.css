@@ -1,0 +1,28 @@
+.login .card {
+  border-radius: 15px;
+  padding: 50px;
+}
+.login .card-footer {
+  border: 0;
+  background-color: #fff;
+}
+.login-separator {
+  border-top: 1px solid #aaa;
+  position: relative;
+  margin: 50px 0;
+}
+
+.login-separator:after {
+  content: "or connect with";
+  position: absolute;
+  top: -13px;
+  left: 33%;
+  background-color: #fff;
+  padding: 0px 8px;
+}
+
+@media only screen and (max-width: 768px) {
+  .login .card {
+    padding: 0;
+  }
+}

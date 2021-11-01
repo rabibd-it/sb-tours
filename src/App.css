@@ -1,38 +1,243 @@
-.App {
+/*======================================== Typography ========================================*/
+* {
+  padding: 0;
+  margin: 0;
+}
+img {
+  border: none;
+  outline: none;
+  height: auto;
+  max-width: 100%;
+}
+a,
+a:active,
+a:focus,
+a:hover {
+  outline: none !important;
+  text-decoration: none;
+}
+a {
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  color: #333;
+}
+a:hover {
+  color: #6abe45;
+}
+input:focus,
+textarea:focus,
+select:focus,
+button:focus {
+  outline: none !important;
+  box-shadow: none;
+}
+ul,
+ol {
+  margin: 0;
+  list-style-type: none;
+}
+
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+.text-center {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.text-justify {
+  text-align: justify;
+}
+.with-errors {
+  color: red;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  background: #fff;
+  font-size: 16px;
+  position: relative;
+  overflow-x: hidden;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #333;
+  font-family: "Poppins", sans-serif;
+}
+h1 {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 46px;
+  margin: 0 0 14px;
+}
+h2 {
+  font-weight: 700;
+  font-size: 30px;
+  margin: 0 0 20px;
+  line-height: 40px;
+  text-transform: uppercase;
+}
+h3 {
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: capitalize;
+  margin: 0 0 15px;
+}
+h4 {
+  font-size: 14px;
+  color: #888;
+  font-weight: 400;
+  margin: 0 0 20px;
+}
+h5 {
+  font-weight: 300;
+  margin: 0 0 10px;
+}
+h6 {
+  font-size: 14px;
+  line-height: 18px;
+  color: #999;
+  font-weight: 400;
+  margin: 0 0 10px;
+}
+p {
+  font-size: 16px;
+  line-height: 28px;
+  color: #888;
+  margin: 0 0 25px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/*======================================== General Design ========================================*/
+.btn.btn-default {
+  line-height: 26px;
+  border: 2px solid #6abe45;
+  border-radius: 20px;
+  padding: 12px 30px;
+  color: #6abe45;
+  font-weight: 500;
+  text-transform: capitalize;
+  box-shadow: none !important;
+}
+.btn.btn-primary,
+.btn-primary:not(:disabled):not(.disabled).active,
+.btn-primary:not(:disabled):not(.disabled):active,
+.show > .btn-primary.dropdown-toggle {
+  line-height: 26px;
+  border: 2px solid #6abe45;
+  border-radius: 27px;
+  padding: 12px 35px;
+  color: #fff;
+  font-weight: 500;
+  background: #6abe45;
+  text-transform: capitalize;
+  opacity: 1;
+  box-shadow: none !important;
+}
+.btn-primary:hover {
+  color: #6abe45;
+  border-color: #6abe45;
+  background: none;
+}
+.btn.btn-default:hover {
+  background: #6abe45;
+  color: #fff;
+  border-color: #6abe45;
+}
+.btn.focus,
+.btn:focus {
+  outline: 0;
+  box-shadow: none;
+}
+section {
+  width: 100%;
+  float: left;
+  height: auto;
+  position: relative;
+}
+.section-spacing {
+  padding: 100px 0;
+}
+.inverse-bg {
+  background: #f8faff;
+}
+.section-title {
+  width: 100%;
+  float: left;
+  height: auto;
+  margin: 0 0 70px;
+}
+.section-title h2 {
+  position: relative;
+}
+.section-title h2 span {
+  position: relative;
+  z-index: 3;
+}
+.section-title h2::before {
+  width: 10px;
+  height: 55px;
+  position: absolute;
+  left: 50%;
+  content: "";
+  background: #6abe45;
+  opacity: 0.4;
+  top: -15px;
+  border-radius: 5px;
+  transform: rotate(45deg);
+}
+.section-title h2::after {
+  width: 10px;
+  height: 55px;
+  position: absolute;
+  left: 50%;
+  content: "";
+  background: #6abe45;
+  opacity: 0.4;
+  bottom: -15px;
+  border-radius: 5px;
+  transform: rotate(45deg);
+}
+.section-title p {
+  display: block;
+  margin: 0 auto;
+  max-width: 605px;
+}
+.mt-40 {
+  margin-top: 40px;
+}
+.bottom-none {
+  padding-bottom: 0 !important;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/*======================================== Social ========================================*/
+.social-links ul {
+  margin: 0;
+  padding: 0;
+  font-size: 0;
 }
-
-.App-link {
-  color: #61dafb;
+.social-links li {
+  display: inline-block;
+  list-style: none;
+  margin: 0 10px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.social-links a {
+  font-size: 16px;
+  color: #404040;
+  -webkit-transition: color 0.4s;
+  -moz-transition: color 0.4s;
+  -ms-transition: color 0.4s;
+  -o-transition: color 0.4s;
+  transition: color 0.4s;
+}
+.social-links a:hover,
+.social-links a:focus,
+.social-links a:active {
+  color: #2c75ba;
 }

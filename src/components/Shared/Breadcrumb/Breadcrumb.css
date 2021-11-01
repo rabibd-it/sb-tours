@@ -1,0 +1,64 @@
+.inner-page-banner {
+  width: 100%;
+  float: left;
+  height: 250px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -ms-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  position: relative;
+}
+.page-banner-caption {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.inner-page-banner h1 {
+  position: relative;
+  font-weight: 700;
+  padding-bottom: 12px;
+  text-transform: capitalize;
+  margin: 0 0 15px;
+  color: #333;
+}
+.inner-page-banner h1::before {
+  width: 70px;
+  height: 4px;
+  position: absolute;
+  left: 0;
+  content: "";
+  background: #6abe45;
+  bottom: 0;
+}
+.breadcrumb {
+  padding: 0;
+  background: none;
+  display: block;
+  margin: 0;
+}
+.breadcrumb li a:hover {
+  color: #6abe45;
+}
+.breadcrumb-item {
+  text-transform: capitalize;
+  font-size: 14px;
+  color: #888;
+  display: inline-block;
+}
+.breadcrumb-item a {
+  color: #888;
+}
+.breadcrumb-item.active {
+  color: #888;
+  opacity: 0.8;
+}
+.breadcrumb-item + .breadcrumb-item::before {
+  color: #888;
+}

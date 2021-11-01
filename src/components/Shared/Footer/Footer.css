@@ -1,0 +1,83 @@
+/*======================================== Footer =============================*/
+#footer {
+  width: 100%;
+  float: left;
+  height: auto;
+}
+.footer-top {
+  width: 100%;
+  float: left;
+  height: auto;
+  padding: 70px 0;
+  background: #0e0e11;
+}
+.footer-widget {
+  width: 100%;
+  float: left;
+  height: auto;
+}
+.footer-widget h3 {
+  color: #fff;
+  margin: 0 0 30px;
+}
+.footer-widget p {
+  color: #999;
+  margin: 0;
+}
+.footer-top ul {
+  width: 100%;
+  float: left;
+}
+.footer-top ul li {
+  width: 100%;
+  float: left;
+  margin: 0 0 12px;
+  color: #999;
+}
+.footer-top ul li:last-child {
+  margin: 0;
+}
+.footer-top ul li a {
+  color: #999;
+}
+.footer-top ul li a:hover {
+  color: #6abe45;
+}
+.footer-widget .fa {
+  width: 20px;
+}
+
+.footer-bottom {
+  width: 100%;
+  float: left;
+  height: auto;
+  background: #000;
+  padding: 25px 0;
+}
+.copyright p {
+  margin: 0;
+  color: #999;
+  line-height: 30px;
+}
+.social-icons li {
+  display: inline-block;
+  margin: 0 0px 0 10px;
+}
+.social-icons li a {
+  display: inline-block;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  width: 30px;
+  line-height: 28px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 3px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.social-icons li a:hover {
+  color: #fff;
+  border-color: #fff;
+}
