@@ -10,7 +10,7 @@ const Hotel = ({ hotel }) => {
                     <div className="row">
                         <div className="col-lg-5">
                             <div className="thumb h-100">
-                                <Link to={`/tours/booking/${_id}`}>
+                                <a href="#">
                                     <img
                                         src={image ? image : 'https://i.ibb.co/Wy1R6rV/no-photo.jpg'}
                                         alt={name}
@@ -19,13 +19,13 @@ const Hotel = ({ hotel }) => {
                                             width: "100%"
                                         }}
                                     />
-                                </Link>
+                                </a>
                             </div>
                         </div>
                         <div className="col-lg-7">
                             <div className="media-body">
                                 <div className="hotel-info">
-                                    <h3><Link to={`/tours/booking/${_id}`}>{name}</Link></h3>
+                                    <h3><a href="#">{name}</a></h3>
                                     <p className="text-justify">
                                         {description.slice(0, 100)}
                                     </p>
